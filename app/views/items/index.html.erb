@@ -1,0 +1,6 @@
+<% @items.each do |item| %>
+  <%= render(
+    partial: 'item_card',
+    locals: { item: item }
+  ) %>
+<% end %>

@@ -1,0 +1,11 @@
+.navbar {
+  background-color: $secondary;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  &__brand {
+    font-size: 2rem;
+    color: #fff;
+  }
+}
