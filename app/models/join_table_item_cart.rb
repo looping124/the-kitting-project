@@ -1,0 +1,2 @@
+class JoinTableItemCart < ApplicationRecord
+end
