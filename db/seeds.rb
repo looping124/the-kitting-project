@@ -35,7 +35,7 @@ picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbn
 # Création des items
 9.times do |i|
   Item.create(title: "Photo n°#{i}", 
-    description: "Description n°#{i}", 
+    description: "Description n°#{i} : #{Faker::Lorem.words(number: 5)}", 
     price: Faker::Number.between(from: 10.0, to: 150.0).round(2), 
     image_url: picturesArr[i]
   )
