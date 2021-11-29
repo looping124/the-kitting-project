@@ -17,8 +17,19 @@ JoinTableItemCart.destroy_all
 
 ### Remplissage de la BDD
 
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
 # Création des users
-User.create(email: "a@a.fr", password: "adminpwd", is_admin: true)
+User.create(
+  email: "a@a.fr",
+  password: "adminpwd",
+  is_admin: true,
+  first_name: 'Admin',
+  last_name: 'istrateur'
+)
+
 user = User.create(email: "u@u.fr", password: "userpwd")
 
 picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbnail.png", 
