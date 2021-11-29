@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/:show.html.erb</p>
+<div class='show-user-container'>
+  <div class='user-info'>
+    <div class='user-info__infos'>
+      <p class='user-first-name'>
+        <span class='text-muted'>Prénom : </span>
+        <% if @user.first_name %>
+          <%= @user.first_name %>
+        <% else %>
+          Miaou ? 😿
+        <% end %>
+      </p>
+      <p class='user-last-name'>
+        <span class='text-muted'>Nom : </span>
+        <% if @user.last_name %>
+          <%= @user.last_name %>
+        <% else %>
+          Miaou ? 😿
+        <% end %>
+      </p>
+      <p class='user-email'>
+        <span class='text-muted'>Adresse mail : </span>
+        <%= @user.email %>
+      </p>
+    </div>
+    <div class='user-info__edit'>
+      <%= link_to 'Editer mes informations', edit_user_path(@user), class: 'btn' %>
+    </div>
+  </div>
+  <div class='previous-orders'>
+    <h2>Mes précédentes commandes</h2>
+  </div>
+</div>
