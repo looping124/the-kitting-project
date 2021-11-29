@@ -1,0 +1,22 @@
+.index-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__illustration {
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 4rem;
+
+    img {
+      height: 100%;
+      transform: scale(1);
+      transition: all .5s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

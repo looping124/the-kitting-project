@@ -1,0 +1,23 @@
+.navbar {
+  background-color: $secondary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      height: 3rem;
+      width: 3rem;
+      margin-right: 1rem;
+    }
+
+    .title {
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+}

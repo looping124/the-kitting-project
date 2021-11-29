@@ -1,0 +1,11 @@
+<div class='items-index-container'>
+  <div class='herobar'><h1>Miaou</h1></div>
+  <div class='items'>
+    <% @items.each do |item| %>
+      <%= render(
+        partial: 'item_card',
+        locals: { item: item }
+      ) %>
+    <% end %>
+  </div>
+</div>
