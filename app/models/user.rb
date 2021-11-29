@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Merci de renseigner une adresse email valide." }
 
   after_initialize do |user|
-    Cart.create(user: user)
+    self.cart ||= Cart.create(user: user)
   end
 end

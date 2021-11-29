@@ -3,7 +3,7 @@
     <div class='user-info__infos'>
       <p class='user-first-name'>
         <span class='text-muted'>Prénom : </span>
-        <% if @user.first_name %>
+        <% if @user.first_name && @user.first_name != '' %>
           <%= @user.first_name %>
         <% else %>
           Miaou ? 😿
@@ -11,7 +11,7 @@
       </p>
       <p class='user-last-name'>
         <span class='text-muted'>Nom : </span>
-        <% if @user.last_name %>
+        <% if @user.last_name && @user.last_name != '' %>
           <%= @user.last_name %>
         <% else %>
           Miaou ? 😿
