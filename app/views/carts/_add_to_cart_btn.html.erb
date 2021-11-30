@@ -1,5 +1,13 @@
-<% if JoinTableItemCart.find_by(item: item, cart: current_user.cart) %>
-  <p> Ce produit est déjà dans votre panier. </p>
+<%# On vérifie si l'utilisateur est connecté %>
+<% if user_signed_in? %>
+
+  <%# Si oui, on regarde si l'article est déjà dans son panier, sinon on affiche le bouton d'ajout %>
+  <% if JoinTableItemCart.find_by(item: item, cart: current_user.cart) %>
+    <p> Ce produit est déjà dans votre panier. </p>
+  <% else %>
+    <div class="mt-1"><%= link_to 'Ajouter au panier', join_table_item_carts_path(id: item.id), method: "post", class: 'btn' %></div>
+  <% end %>
+
 <% else %>
-  <div class="mt-1"><%= link_to 'Ajouter au panier', join_table_item_carts_path(id: item.id), method: "post", class: 'btn' %></div>
+  <p> Connectez-vous pour ajouter ce produit à votre panier. </p>
 <% end %>
