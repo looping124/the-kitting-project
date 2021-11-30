@@ -41,3 +41,27 @@
     }
   }
 }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: center;
+  margin: 1rem 0;
+
+  & img {
+    width: 10rem;
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    margin-right: 1rem;
+  }
+
+  &__content {
+    &--title, &--quantity {
+      font-weight: bolder;
+    }
+  }
+}
