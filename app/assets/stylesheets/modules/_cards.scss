@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  flex-shrink: 0;
 
   &__illustration {
     width: 15rem;
@@ -13,6 +12,7 @@
 
     img {
       height: 100%;
+      width: auto;
       transform: scale(1);
       transition: all .5s ease;
 
