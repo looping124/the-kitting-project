@@ -48,7 +48,7 @@ picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbn
   Item.create(
     title: "Photo n°#{i}", 
     description: "Description n°#{i} : #{Faker::Lorem.words(number: 5).join(" ")}", 
-    price: rand(10..150),
+    price: rand(10..500), 
     image_url: picturesArr[i]
   )
 end

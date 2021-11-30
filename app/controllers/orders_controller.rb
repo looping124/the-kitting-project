@@ -8,7 +8,12 @@ class OrdersController < ApplicationController
   # end
 
   def create
-    Order.create(user: current_user)
+    if current_user.cart.join_table_item_carts.size >= 1
+      order = Order.create(user: current_user)
+      redirect_to order_path(order)
+    else
+      redirect_to root_path
+    end
   end
 
   def show
