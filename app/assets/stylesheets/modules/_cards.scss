@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  width: 90%;
 
   &__illustration {
-    height: 15rem;
+    width: 15rem;
     overflow: hidden;
     border-radius: 4rem;
 

@@ -5,7 +5,7 @@
   <% if JoinTableItemCart.find_by(item: item, cart: current_user.cart) %>
     <p> Ce produit est déjà dans votre panier. </p>
   <% else %>
-    <div class="mt-1"><%= link_to 'Ajouter au panier', join_table_item_carts_path(id: item.id), method: "post", class: 'btn' %></div>
+    <%= link_to 'Ajouter au panier', join_table_item_carts_path(id: item.id), method: "post", class: 'btn' %>
   <% end %>
 
 <% else %>

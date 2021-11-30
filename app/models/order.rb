@@ -37,9 +37,6 @@ class Order < ApplicationRecord
   end
 
 
-
-
-
   def send_new_order_to_admin
     UserMailer.new_order_email(self).deliver_now
   end
