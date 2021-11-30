@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   validates :description, presence: true, length: { in: 10..1000, message: ": Le nombre de caractère doit être compris entre 20 et 1000" }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 999, message: "Petit gourmand ! Le prix doit être inférieur ou égal à 999€.", only_integer: true }
   validates :image_url, presence: true
-  validate :has_item_picture?
+  # validate :has_item_picture?
 
   private
 
