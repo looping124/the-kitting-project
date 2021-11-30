@@ -5,6 +5,6 @@
   <div class='index-card__body'>
     <h3 class='title'><%= item.title %>
     <p class='price'><%= "#{item.price.to_s.ljust(5, '0')} €" %></p>
-    <%= link_to 'En savoir plus', '#', class: 'btn' %>
+    <%= link_to 'En savoir plus', item_path(item.id) , class: 'btn' %>
   </div>
 </div>
