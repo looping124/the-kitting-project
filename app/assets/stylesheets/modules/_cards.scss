@@ -63,5 +63,24 @@
     &--title, &--quantity {
       font-weight: bolder;
     }
+
+    &--options {
+      display: flex;
+      align-items: center;
+    }
   }
+
+  & .add_quantity {
+    font-size: 1.2em;
+    padding: 0 0.2em;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-left: 0.5em;
+    color: $gni;
+}
 }

@@ -13,11 +13,14 @@
 
           <%# Fonction d'ajout ou retrait de quantité : Moins de 1 = Supprimer l'article %>
           <% if (JoinTableItemCart.find_by(item: item, cart: cart).quantity - 1 <= 0) %>
-           <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn" %>
-            <p> + </p>
+            <div class="cart-item__content--options">
+              <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn" %>
+              <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"add_quantity" %>
+            </div>
           <% else %>
             <%# Insérer ici fonction d'incrément de quantité %>
-            <p> - / + </p>
+            <%= link_to "-", join_table_item_cart_path(id: item.id, increment: -1), method: "patch",class:"add_quantity" %>
+            <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"add_quantity" %>
           <% end %>
 
         </div>
