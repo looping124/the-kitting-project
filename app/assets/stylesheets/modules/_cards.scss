@@ -5,12 +5,15 @@
   width: 90%;
 
   &__illustration {
-    width: 15rem;
+    max-width: 15rem;
+    height: auto;
+    max-height: 15rem;
     overflow: hidden;
-    border-radius: 4rem;
     margin: 0 1rem;
+    border-radius: 4rem;
 
     img {
+      object-fit: cover;
       height: 100%;
       width: auto;
       transform: scale(1);
@@ -26,6 +29,7 @@
 .show-card {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   &__body {
     margin: 1em;
