@@ -6,7 +6,7 @@
   <div class='navbar__items'>
     <% if user_signed_in? %>
       <%= link_to 'Mon Compte', user_path(current_user), class: 'item' %>
-      <%= link_to 'Mon Panier', '#', class: 'item' %>
+      <%= link_to 'Mon Panier', cart_path(current_user), class: 'item' %>
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>
       <%= link_to 'Me connecter', new_user_session_path, class: 'item' %>

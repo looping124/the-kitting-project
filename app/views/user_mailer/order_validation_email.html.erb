@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation de votre commande</h1>
+    <h3>Bonjour, nous avons le plaisir de confirmer votre commande d'un montant total de : <%= @order.total_price %>€</h3>
+    <h6>Voici le détail de votre commande :</h6>
+    <% @order.join_table_item_orders.each do |order_items| %>
+      <p><%= order_items.item.quantity %> x "<%= order_items.item.title %>" (<%= order_items.item.price %>€)</p>
+    <% end %>
+    <p>A bientôt sur Poticha.</p>
+  </body>
+</html>

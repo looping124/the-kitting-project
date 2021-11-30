@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   root 'items#index'
   resources 'items'
   resources 'users'
+
   resources 'orders'
+
+  resources 'carts'
+  resources 'join_table_item_carts', only: [:create]
+
 end

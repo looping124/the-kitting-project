@@ -1,0 +1,4 @@
+<p> Insérer miniature ici </p>
+<p>Nom : <%= item.title %></p>
+<p>Prix : <%= item.price %>€</p>
+<p>Quantité : <%= JoinTableItemCart.find_by(item: item, cart: cart).quantity %></p>
