@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources 'items'
   resources 'users'
   resources 'carts'
+  resources 'join_table_item_carts', only: [:create]
 end

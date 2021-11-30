@@ -6,6 +6,6 @@
     <h2><%= item.title %></h2>
     <p class="grey"><%= item.price %>€</p>
     <p class=show-card__body--description><%= item.description %></p>
-    <div class="mt-1"><%= link_to "Ajouter au panier", "#", class: "btn" %></div>
+    <div class="mt-1"><%= link_to "Ajouter au panier", join_table_item_carts_path(id: item.id), method: "post", class: "btn" %></div>
   </div>
 </div>
