@@ -6,9 +6,21 @@ class Item < ApplicationRecord
   has_many :join_table_item_orders
   has_many :orders, through: :join_table_item_orders
 
+  has_one_attached :item_picture
+
   #Validations
   validates :title, presence: true, length: { in: 3..140, message: ": Le nombre de caractère doit être compris entre 3 et 140" }
-  validates :description, presence: true, length: { in: 20..1000, message: ": Le nombre de caractère doit être compris entre 20 et 1000" }
-  validates :price, presence: true, format: { with: /\A\d+(?:\.\d{2})?\z/, message: ": Le prix doit préciser exactement 2 chiffres après la virgule. Ni plus ni moins cow-boy." }, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 999, message: ": Petit gourmand ! Le prix doit être inférieur ou égal à 999€." }
+  validates :description, presence: true, length: { in: 10..1000, message: ": Le nombre de caractère doit être compris entre 20 et 1000" }
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 999, message: "Petit gourmand ! Le prix doit être inférieur ou égal à 999€.", only_integer: true }
   validates :image_url, presence: true
+  validate :has_item_picture?
+
+  private
+
+  def has_item_picture?
+    unless self.item_picture.attached?
+      errors.add(:item_picture, "Merci d'ajouter une photo.")
+    end
+  end
+
 end
