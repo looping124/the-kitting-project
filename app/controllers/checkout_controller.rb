@@ -1,4 +1,6 @@
 class CheckoutController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @total = params[:total].to_d
     @session = Stripe::Checkout::Session.create(
@@ -22,6 +24,7 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+    @order = Order.create(user: current_user) if ( current_user.cart.join_table_item_carts.size >= 1 && @session.payment_status = "paid" )
   end
 
   def cancel

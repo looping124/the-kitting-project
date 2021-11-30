@@ -31,15 +31,17 @@
 
   <% else %>
     <p> Le panier est vide. 😿 </p>
+    <%= link_to "Retour à l'accueil", root_path, class:"btn" %>
   <% end %>
 </div>
 
 <div class="cart-total-wrapper">
-  <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
-  
-  <%= link_to "Payer (la moulah)",
-    checkout_create_path(total: @total_amount),
-    class:"btn",
-    remote: true,
-    method: :post %>
-  <%= link_to "Créer Commande", orders_path, :method => :post, class:"btn" %>
+  <% if cart.items.length > 0 %>
+    <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
+    <%= link_to "Finaliser la commande",
+      checkout_create_path(total: @total_amount),
+      class:"btn",
+      remote: true,
+      method: :post %>
+  <% end %>
+</div>
