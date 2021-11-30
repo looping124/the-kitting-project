@@ -1,8 +1,8 @@
 <nav class='navbar'>
-  <div class='navbar__brand'>
+  <%= link_to root_path, class: 'navbar__brand' do %>
     <div class='logo'></div>
-    <%= link_to 'Poticha', root_path, class: 'title' %>
-  </div>
+    <h1 class='title'>Poticha</h1>
+  <% end %>
   <div class='navbar__items'>
     <% if user_signed_in? %>
       <%= link_to 'Mon Compte', user_path(current_user), class: 'item' %>

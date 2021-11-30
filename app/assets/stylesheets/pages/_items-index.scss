@@ -1,4 +1,8 @@
 .items-index-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   .herobar {
     background-image: url(https://i.pinimg.com/originals/07/89/d5/0789d5fa211be6fbb54747727944b351.jpg);
     height: 15rem;
@@ -16,7 +20,9 @@
   }
 
   .items {
-    padding:  15%;
+    width: 80%;
+    max-width: 700px;
+    margin: 5rem 0;
 
     .index-card:nth-child(2n) {
       flex-direction: row;
@@ -25,6 +31,32 @@
     
     .index-card:nth-child(2n + 1) {
       flex-direction: row-reverse;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .items-index-container {
+    .index-card {
+      justify-content: center;
+      margin-bottom: 1rem;
+      &__illustration {
+        img {
+          width: 100%;
+          flex: 0 0 auto;
+          aspect-ratio: 1/1;
+        }
+      }
+      &__body {
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0;
+
+        .btn {
+          width: fit-content;
+          display: inline-block;
+        }
+      }
     }
   }
 }

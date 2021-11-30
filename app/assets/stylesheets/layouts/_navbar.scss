@@ -18,6 +18,31 @@
     .title {
       font-size: 2rem;
       color: #fff;
+      font-weight: 400;
     }
+  }
+
+  &__items {
+    .item {
+      margin: .8rem;
+      color: $gni;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    &__brand {
+      .title {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .navbar {
+    
   }
 }
