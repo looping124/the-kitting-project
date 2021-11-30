@@ -24,9 +24,25 @@
     max-width: 700px;
     margin: 5rem 0;
 
+    .index-card {
+      margin: 2rem 0;
+      font-size: 1.2rem;
+
+      &__actions {
+        .btn {
+          display: block;
+          width: fit-content;
+        }
+      }
+    }
+
     .index-card:nth-child(2n) {
       flex-direction: row;
       text-align: right;
+
+      .btn {
+        margin-left: auto;
+      }
     }
     
     .index-card:nth-child(2n + 1) {
@@ -37,9 +53,13 @@
 
 @media screen and (max-width: 750px) {
   .items-index-container {
+    .herobar {
+      h1 {
+        font-size: 4rem;
+      }
+    }
     .index-card {
       justify-content: center;
-      margin-bottom: 1rem;
       &__illustration {
         img {
           width: 100%;
@@ -51,10 +71,12 @@
         width: 100%;
         text-align: center;
         margin: 1rem 0;
+      }
 
+      &__actions {
+        text-align: center;
         .btn {
-          width: fit-content;
-          display: inline-block;
+          margin: 1rem auto;
         }
       }
     }
