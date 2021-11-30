@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  #Callbacks
   after_create :send_new_order_to_admin
   after_create :send_order_validation_to_user
 
@@ -9,7 +10,7 @@ class Order < ApplicationRecord
 
   def total_price
     total = 0
-    self.join_table_item_order.each do |order_items|
+    self.join_table_item_orders.each do |order_items|
       total += order_items.item.price * order_items.quantity
     end
     return total

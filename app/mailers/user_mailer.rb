@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user)
     @user = user 
-    @url  = "https://poticha-dev.herokuapp.com/sign_in" 
+    @url  = "https://poticha-dev.herokuapp.com/users/sign_in" 
     mail(to: @user.email, subject: "Bienvenue sur Poticha ! 🐱") 
   end
 
