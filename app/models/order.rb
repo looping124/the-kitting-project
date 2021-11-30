@@ -27,8 +27,6 @@ class Order < ApplicationRecord
     self.user.join_table_item_carts.destroy_all
   end
 
-end
-
   def total_price
     total = 0
     self.join_table_item_orders.each do |order_items|
