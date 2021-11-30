@@ -37,10 +37,9 @@
 <div class="cart-total-wrapper">
   <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
   
-  
-  <% if @cart.join_table_item_carts.size >= 1 %>
-    <%= link_to "Créer Commande", orders_path, :method => :post, class:"btn" %>
-  <% end %>
-  
-  
-</div>
+  <%= link_to "Payer (la moulah)",
+    checkout_create_path(total: @total_amount),
+    class:"btn",
+    remote: true,
+    method: :post %>
+  <%= link_to "Créer Commande", orders_path, :method => :post, class:"btn" %>
