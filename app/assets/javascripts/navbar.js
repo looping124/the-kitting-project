@@ -63,12 +63,10 @@ chooseRandomLogo();
 // Mobile nav toggler
 
 window.onload = () => {
-  const navbar = document.querySelector('.navbar');
   const dropdownBtn = document.querySelector('.dropdown-btn');
   const dropdownMenu = document.querySelector('.dropdown-menu');
 
   dropdownBtn.addEventListener('click', () => {
-    navbar.classList.toggle('mobile-menu-active')
     dropdownBtn.classList.toggle('is-active');
     dropdownMenu.classList.toggle('is-active');
   })
