@@ -30,13 +30,14 @@
 
     & .grey {
       color: $grey;
-      padding: 1rem 0;
-      border-bottom: 1px solid $lightgrey;
+      margin: 1rem 0;
     }
 
     &--description {
-      margin: 1rem 0;
+      padding: 1rem 0;
       max-width: 20rem;
+      border-bottom: 1px solid $lightgrey;
+      border-top: 1px solid $lightgrey;
     }
   }
 }
