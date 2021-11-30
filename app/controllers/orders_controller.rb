@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    Order.create(user: current_user)
   end
 
   def show

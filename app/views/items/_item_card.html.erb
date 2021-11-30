@@ -3,8 +3,16 @@
     <img src=<%= item.image_url %> alt='image'>
   </div>
   <div class='index-card__body'>
-    <h3 class='title'><%= item.title %>
-    <p class='price'><%= "#{item.price} €" %></p>
-    <%= link_to 'En savoir plus', item_path(item.id) , class: 'btn' %>
+    <div class='index-card__info'>
+      <h3 class='title'><%= item.title %></h3>
+      <p class='price'><%= "#{item.price} €" %></p>
+    </div>
+    <div class='index-card__actions'>
+      <%= link_to 'En savoir plus', item_path(item.id) , class: 'btn' %>
+      <%= render(
+        partial: "carts/add_to_cart_btn",
+        locals: {item: item}
+      ) %>
+    </div>
   </div>
 </div>
