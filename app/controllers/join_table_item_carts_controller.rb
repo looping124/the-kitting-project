@@ -1,0 +1,12 @@
+class JoinTableItemCartsController < ApplicationController
+  def create
+    JoinTableItemCart.create(cart: current_user.cart, item: Item.find(params[:id]))
+    redirect_to item_path(params[:id])
+  end
+
+  def destroy
+    @item = JoinTableItemCart.find_by(cart: current_user.cart, item: Item.find(params[:id]))
+    @item.destroy
+    redirect_to cart_path(current_user.cart)
+  end
+end
