@@ -12,4 +12,11 @@ Rails.application.routes.draw do
   resources 'carts'
   resources 'join_table_item_carts', only: [:create]
 
+  namespace :admin do
+    root 'board#index'
+    resources :items do 
+      resources :item_pictures, only: [:create]
+    end
+  end
+
 end

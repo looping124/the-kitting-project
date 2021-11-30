@@ -7,12 +7,11 @@ class Order < ApplicationRecord
   after_create :send_new_order_to_admin
   after_create :send_order_validation_to_user
 
-
   #Associations
   belongs_to :user
   has_many :join_table_item_orders
   has_many :items, through: :join_table_item_orders
-  
+ 
   private
 
   #on remplit la commande avec la join table du panier
