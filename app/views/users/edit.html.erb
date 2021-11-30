@@ -2,8 +2,6 @@
   <div class="form-page__form">
     <h2>Editer mes informations</h2>
 
-    <%= link_to 'Editer mon Email / Mot de Passe', edit_user_registration_path(@user), class: 'btn' %>
-
     <%= form_for(@user, url: user_path(@user), method: :put) do |f| %>
       <div class="field">
         <%= f.label 'Prénom' %><br />
@@ -18,5 +16,6 @@
         <%= f.submit "Enregistrer les changements", class:"btn" %>
       </div>
     <% end %>
+    <%= link_to 'Editer mon Email / Mot de Passe', edit_user_registration_path(@user) %>
   </div>
 </div>
