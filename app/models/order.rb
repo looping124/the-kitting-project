@@ -4,8 +4,8 @@ class Order < ApplicationRecord
   after_create :fill_order
   after_create :empty_cart
  
-  after_create :send_new_order_to_admin
-  after_create :send_order_validation_to_user
+  # after_create :send_new_order_to_admin
+  # after_create :send_order_validation_to_user
 
   #Associations
   belongs_to :user
@@ -25,7 +25,7 @@ class Order < ApplicationRecord
   #on remplit la commande avec la join table du panier
   def fill_order
     self.user.cart.join_table_item_carts.each do |join_table_item_cart|
-      JoinTableItemOrder.create(order: self, item: join_table_item_cart.item)
+      JoinTableItemOrder.create(order: self, item: join_table_item_cart.item, quantity: join_table_item_cart.quantity)
     end
   end
 
