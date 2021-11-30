@@ -3,6 +3,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
+    @total_amount = @cart.total_price()
   end
 
   private

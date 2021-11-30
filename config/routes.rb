@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources 'orders'
 
   resources 'carts'
-  resources 'join_table_item_carts', only: [:create]
+  resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]
 
 end

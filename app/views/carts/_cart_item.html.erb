@@ -1,4 +1,35 @@
-<p> Insérer miniature ici </p>
-<p>Nom : <%= item.title %></p>
-<p>Prix : <%= item.price %>€</p>
-<p>Quantité : <%= JoinTableItemCart.find_by(item: item, cart: cart).quantity %></p>
+<div class="cart-items-wrapper">
+  <% if cart.items.length >0 %>
+
+    <% cart.items.each do |item| %>
+      <div class="cart-item">
+        <div class="cart-item__picture">
+          <img src=<%= item.image_url %> alt='image'>
+        </div>
+        <div class="cart-item__content">
+          <p class="cart-item__content--title"><%= item.title %></p>
+          <p><%= item.price %>€</p>
+          <p><span class="cart-item__content--quantity">Quantité :</span> <%= JoinTableItemCart.find_by(item: item, cart: cart).quantity %></p>
+
+          <%# Fonction d'ajout ou retrait de quantité : Moins de 1 = Supprimer l'article %>
+          <% if (JoinTableItemCart.find_by(item: item, cart: cart).quantity - 1 <= 0) %>
+           <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn" %>
+            <p> + </p>
+          <% else %>
+            <%# Insérer ici fonction d'incrément de quantité %>
+            <p> - / + </p>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+
+  <% else %>
+    <p> Le panier est vide. 😿 </p>
+  <% end %>
+</div>
+
+<div class="cart-total-wrapper">
+  <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
+  <%= link_to "Payer (ajoute stripe ici bg)", "#", class:"btn" %>
+</div>
