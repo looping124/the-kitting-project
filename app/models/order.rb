@@ -13,19 +13,6 @@ class Order < ApplicationRecord
   has_many :join_table_item_orders
   has_many :items, through: :join_table_item_orders
   
-  private
-
-  #on remplit la commande avec la join table du panier
-  def fill_order
-    self.user.join_table_item_carts.each do |join_table_item_cart|
-      JoinTableItemOrder.create(order: self, item: join_table_item_cart.item)
-    end
-  end
-
-  #on vide le panier
-  def empty_cart
-    self.user.join_table_item_carts.destroy_all
-  end
 
   def total_price
     total = 0
@@ -34,6 +21,21 @@ class Order < ApplicationRecord
     end
     return total
   end
+  
+  private
+
+  #on remplit la commande avec la join table du panier
+  def fill_order
+    self.user.cart.join_table_item_carts.each do |join_table_item_cart|
+      JoinTableItemOrder.create(order: self, item: join_table_item_cart.item)
+    end
+  end
+
+  #on vide le panier
+  def empty_cart
+    self.user.cart.join_table_item_carts.destroy_all
+  end
+
 
   def send_new_order_to_admin
     UserMailer.new_order_email(self).deliver_now

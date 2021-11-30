@@ -7,7 +7,7 @@ Nous avons le plaisir de confirmer votre commande d'un montant total de : <%= @o
 
 Voici le détail de votre commande :
 <% @order.join_table_item_orders.each do |order_items| %>
-  <%= order_items.item.quantity %> x "<%= order_items.item.title %>" (<%= order_items.item.price %>€)
+  <%= order_items.quantity %> x "<%= order_items.item.title %>" (<%= order_items.item.price %>€)
 <% end %>
 
 A bientôt sur Poticha.
