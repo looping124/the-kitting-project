@@ -5,7 +5,8 @@
   width: 90%;
 
   &__illustration {
-    width: 15rem;
+    max-width: 15rem;
+    height: auto;
     overflow: hidden;
     border-radius: 4rem;
     margin: 0 1rem;
