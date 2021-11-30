@@ -31,6 +31,11 @@
 
 <div class="cart-total-wrapper">
   <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
-  <%= link_to "Payer (ajoute stripe ici bg)", "#", class:"btn" %>
-  <%= link_to "Créer Commande", orders_path, :method => :post, class:"btn" %>
+  
+  
+  <% if @cart.join_table_item_carts.size >= 1 %>
+    <%= link_to "Créer Commande", orders_path, :method => :post, class:"btn" %>
+  <% end %>
+  
+  
 </div>
