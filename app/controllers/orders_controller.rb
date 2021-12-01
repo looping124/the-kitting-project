@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
   # end
 
   def check_order
-    if Order.find(params[:id]).user != current_user
+    test = Order.find(params[:id]).user rescue nil
+    if test != current_user
       redirect_to root_path
     end
   end
