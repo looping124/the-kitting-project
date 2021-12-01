@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ 
+  get 'mycarts/show'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   resources 'orders', only: [:index, :show]
 
-  
+  resource 'myprofile', only: [:show]
   resources 'carts'
 
   resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]

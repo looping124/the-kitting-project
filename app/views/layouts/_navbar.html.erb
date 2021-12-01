@@ -9,6 +9,7 @@
         <%= link_to "Administration", admin_root_path, class: 'item' %>
       <% end %>
       <%= link_to 'Mon Compte', user_path(current_user), class: 'item' %>
+       <%= link_to 'Mon Compte 2', myprofile_path, class: 'item' %>
       <% if current_user.cart.items.count > 0 %>
         <%= link_to "Mon Panier (#{current_user.cart.items.count})", cart_path(current_user.cart), class: 'item' %>
       <% else %>
