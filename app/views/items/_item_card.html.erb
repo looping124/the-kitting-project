@@ -7,6 +7,9 @@
     <%end%>
   </div>
   <div class='index-card__body'>
+    <% if user_signed_in? && current_user.is_admin%>
+      <%= link_to raw("<i class='fas fa-times delete'></i>"), item_path(item), method: "delete" %>
+    <% end %>
     <div class='index-card__info'>
       <h3 class='title'><%= item.title %></h3>
       <p class='price'><%= "#{item.price} €" %></p>

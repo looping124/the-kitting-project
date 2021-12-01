@@ -25,6 +25,16 @@
       }
     }
   }
+
+  &__body {
+    & .delete {
+      color: $danger;
+      font-size: 1.6em;
+      position: absolute;
+      right: 1.3em;
+      top: 1.3em;
+    }
+  }
 }
 
 // Cards in item#show
