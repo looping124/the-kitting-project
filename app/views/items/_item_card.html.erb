@@ -1,6 +1,10 @@
 <div class='index-card'>
   <div class='index-card__illustration'>
-    <img src=<%= item.image_url %> alt='image'>
+    <% if item.item_picture.attached? %>
+      <%= image_tag item.item_picture, alt: 'image' %>
+    <%else%>
+      <img src=<%= item.image_url %> alt='image'>
+    <%end%>
   </div>
   <div class='index-card__body'>
     <div class='index-card__info'>
