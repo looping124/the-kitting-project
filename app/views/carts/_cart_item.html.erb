@@ -39,7 +39,10 @@
   <% if cart.items.length > 0 %>
     <p class="cart-total-wrapper__amount"> Total : <%= @total_amount %>€</p>
     <%= link_to "Finaliser la commande",
-      checkout_create_path(total: @total_amount),
+      checkout_create_path(
+        total: @total_amount,
+        
+      ),
       class:"btn",
       remote: true,
       method: :post %>

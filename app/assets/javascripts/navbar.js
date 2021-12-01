@@ -48,6 +48,7 @@ function chooseRandomLogo() {
   const img = coolCatsReactions[imgId]
 
   const logoDiv = document.querySelector('.navbar__brand .logo');
+  const favicon = document.querySelector('link[rel="icon"]');
 
   logoDiv.setAttribute(
     'style',
@@ -55,7 +56,9 @@ function chooseRandomLogo() {
     background-position: 50% 50%;
     background-size: cover;
     transform: scaleX(-1);
-  `)
+  `);
+
+  favicon.setAttribute('href', `https://www.coolcatsnft.com/assets/images/e_${img}.png`)
 }
 
 chooseRandomLogo();
