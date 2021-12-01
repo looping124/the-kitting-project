@@ -1,8 +1,16 @@
 <div class='index-card'>
   <div class='index-card__illustration'>
-    <img src=<%= item.image_url %> alt='image'>
+    <% if item.item_picture.attached? %>
+      <%= image_tag item.item_picture, alt: 'image' %>
+    <%else%>
+      <img src=<%= item.image_url %> alt='image'>
+    <%end%>
   </div>
   <div class='index-card__body'>
+    <% if user_signed_in? && current_user.is_admin%>
+      <%= link_to raw("<i class='fa fa-edit'></i>"), edit_admin_item_path(item) %>
+      <%= link_to raw("<i class='fas fa-times delete'></i>"), admin_item_path(item), data: { confirm: "Hello admin, es-tu sûr de vouloir supprimer cet item?" }, method: "delete" %>
+    <% end %>
     <div class='index-card__info'>
       <h3 class='title'><%= item.title %></h3>
       <p class='price'><%= "#{item.price} €" %></p>

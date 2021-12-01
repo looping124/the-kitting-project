@@ -17,16 +17,40 @@ class Admin::ItemsController < Admin::BoardController
     puts @item.valid?   
     if @item.save
       puts "#" * 60
-      flash[:success] = "Item créé avec succès."
+      flash[:success] = "L'item a été créé avec succès 😎"
       redirect_to(admin_item_path(@item))
     else
       puts "$" * 60
+      flash.now[:warning] = @item.errors.full_messages
       render :new
     end
   end
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+
+    if @item.update(item_params)
+      flash[:success] = "L'item a été modifié avec succès 👌"
+      redirect_to items_path
+    else
+      flash.now[:warning] = @item.errors.full_messages
+      render :edit
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:success] = "L'item a été supprimé avec succès 👌"
+    redirect_to items_path
   end
 
   private
