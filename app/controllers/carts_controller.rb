@@ -9,7 +9,8 @@ class CartsController < ApplicationController
   private
 
   def check_cart
-    if current_user.cart != Cart.find(params[:id])
+    test = Cart.find(params[:id]) rescue nil
+    if current_user.cart != test
       redirect_to root_path
     end
   end
