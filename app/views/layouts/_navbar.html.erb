@@ -14,7 +14,7 @@
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>
       <%= link_to 'Me connecter', new_user_session_path, class: 'item' %>
-      <%= link_to "M'identifier", new_user_registration_path, class: 'item' %>
+      <%= link_to "M'inscrire", new_user_registration_path, method: "get", class: 'item' %>
     <% end %>
   </div>
   <svg xmlns="http://www.w3.org/2000/svg"
