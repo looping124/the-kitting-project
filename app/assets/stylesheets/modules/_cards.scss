@@ -31,11 +31,6 @@
       font-size: 1.6em;
       position: absolute;
       top: 1em;
-    }
-
-    & .delete {
-      color: $danger;
-      right: 1em;
 
       &:hover:after {
         opacity: 1;
@@ -44,7 +39,6 @@
       &:after {
         font-family: 'Poppins', sans-serif;
         font-size: 0.6em;
-        content: "Supprimer";
         background-color: #fff;
         display: block;
         padding: 0.2em 1em;
@@ -68,44 +62,25 @@
         -ms-transition: opacity 0.4s;
         -o-transition: opacity 0.4s;
         pointer-events: none;
-}
+      }
+      
+    }
+
+    & .delete {
+      color: $danger;
+      right: 1em;
+
+      &:after {
+        content: "Supprimer";        
+      }
     }
 
     & .edit {
       color: $gni;
       right: 2em;
 
-      &:hover:after {
-        opacity: 1;
-      }
-
       &:after {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.6em;
-        content: "Éditer";
-        background-color: #fff;
-        display: block;
-        padding: 0.2em 1em;
-        position: absolute;
-        transform: translate(-35%);
-        -webkit-transform: translate(-35%);
-        -moz-transform: translate(-35%);
-        -ms-transform: translate(-35%);
-        -o-transform: translate(-35%);
-        border-radius: 4px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -ms-border-radius: 4px;
-        -o-border-radius: 4px;
-        top: -1.5em;
-        box-shadow: 0 0 4px 1px rgba(0,0,0,0.1);
-        opacity: 0;
-        transition: opacity 0.3s;
-        -webkit-transition: opacity 0.3s;
-        -moz-transition: opacity 0.3s;
-        -ms-transition: opacity 0.3s;
-        -o-transition: opacity 0.3s;
-        pointer-events: none;
+        content: "Éditer";        
       }
     }
 
