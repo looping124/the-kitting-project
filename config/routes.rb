@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   
   resources 'carts'
+
   resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]
 
   scope '/checkout' do
