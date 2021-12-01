@@ -114,3 +114,12 @@
 .order-card .show-card {
   margin-bottom: 1em;
 }
+
+// Cards in user#show (aka previous orders)
+.previous-orders__item {
+  margin: 0.5em 0 2em;
+
+  &--amount {
+    font-size: 0.9em;
+  }
+}

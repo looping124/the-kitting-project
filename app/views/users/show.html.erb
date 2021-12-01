@@ -30,8 +30,13 @@
     <h2>Mes précédentes commandes</h2>
     
     <% @user.orders.each do |order| %>
-    <div> <%= link_to "Commande n°#{order.id}", order_path(order) %></div>
+    <div class="previous-orders__item"> 
+      <p> Commande n°<%=order.id%>
+                du <%=format('%02d',order.created_at.day)%>-<%=format('%02d',order.created_at.month)%>-<%=format('%02d',order.created_at.year)%>
+                à <%=format('%02d', order.created_at.hour)%>:<%= format('%02d', order.created_at.min) %> </p>
+      <p class="previous-orders__item--amount"> Montant : <%=order.total_price%>€ </p>
+                <%= link_to "voir les détails", order_path(order), class:"btn info-btn" %>
+    </div>
     <% end %>
-    
   </div>
 </div>
