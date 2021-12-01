@@ -1,6 +1,7 @@
 class JoinTableItemCartsController < ApplicationController
   def create
     JoinTableItemCart.create(cart: current_user.cart, item: Item.find(params[:id]))
+    flash[:success] = "La photo est bien ajoutée à ton cha-riot ✨"
     redirect_to root_path
   end
 

@@ -31,8 +31,11 @@ class OrdersController < ApplicationController
   # def destroy
   # end
 
+  private
+
   def check_order
     if Order.find(params[:id]).user != current_user
+      flash[:warning] = "Cha-perlipopette ! Cette commande n'est pas la tienne ⛔"
       redirect_to root_path
     end
   end

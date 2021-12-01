@@ -17,10 +17,11 @@ class Admin::ItemsController < Admin::BoardController
     puts @item.valid?   
     if @item.save
       puts "#" * 60
-      flash[:success] = "Item créé avec succès."
+      flash[:success] = "L'item a été créé avec succès 😎"
       redirect_to(admin_item_path(@item))
     else
       puts "$" * 60
+      flash.now[:warning] = @item.errors.full_messages
       render :new
     end
   end
