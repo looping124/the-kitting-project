@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  before_validation :create_stripe_product
+
   #Associations
   has_many :join_table_item_carts
   has_many :carts, through: :join_table_item_carts
@@ -15,6 +17,14 @@ class Item < ApplicationRecord
   validates :image_url, presence: true
   # validate :has_item_picture?
 
+  def stripe_price
+    Stripe::Price.retrieve(self.stripe_price_id)
+  end
+
+  def stripe_product
+    Stripe::Product.retrieve(self.stripe_price.product)
+  end
+
   private
 
   def has_item_picture?
@@ -23,4 +33,24 @@ class Item < ApplicationRecord
     end
   end
 
+  def create_stripe_product
+    unless self.stripe_price_id
+      stripe_product = Stripe::Product.create({
+        name: title,
+        description: description,
+        shippable: false,
+        images: [image_url]
+      })
+
+      stripe_price = Stripe::Price.create({
+        product: stripe_product.id,
+        unit_amount: price * 100,
+        currency: 'eur'
+      })
+
+      self.stripe_price_id = stripe_price.id
+
+      self.save
+    end
+  end
 end
