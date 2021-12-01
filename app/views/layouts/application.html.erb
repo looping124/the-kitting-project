@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <script src="https://kit.fontawesome.com/8e2a5370b3.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -15,7 +16,10 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
-    <%= yield %>
+    <div class="page-content">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
 
     <%= javascript_include_tag 'navbar' %>
     <script src="https://js.stripe.com/v3/"></script>
