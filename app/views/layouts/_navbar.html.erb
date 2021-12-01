@@ -12,7 +12,7 @@
       <% if current_user.cart.items.count > 0 %>
         <%= link_to "Mon Panier (#{current_user.cart.items.count})", mycart_path, class: 'item' %>
       <% else %>
-        <%= link_to 'Mon Panier', mon_chat_riot_path(id: current_user.cart.id), class: 'item' %>
+        <%= link_to 'Mon Panier', cart_path(current_user.cart), class: 'item' %>
       <% end %>
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>
@@ -60,7 +60,7 @@
         <%= link_to "Administration", admin_root_path, class: 'item' %>
       <% end %>
       <%= link_to 'Mon Compte', user_path(current_user), class: 'item' %>
-      <%= link_to 'Mon Panier', mon_chat_riot_path(id: current_user.cart.id), class: 'item' %>
+      <%= link_to 'Mon Panier', cart_path(current_user.cart), class: 'item' %>
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>
       <%= link_to 'Me connecter', new_user_session_path, class: 'item' %>
