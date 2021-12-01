@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   resources 'orders', only: [:index, :show]
 
-  resource 'myprofile', only: [:show]
-  resource 'mycart', only: [:show]
+  # Custum routes :
+  resource 'myprofile', only: [:show], :path => "mon-compte"
+  resource 'mycart', only: [:show], :path => "mon-chat-riot"
+  
   resources 'carts'
 
   resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]
