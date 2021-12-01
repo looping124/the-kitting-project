@@ -1,2 +1,7 @@
-<h1>Mycarts#show</h1>
-<p>Find me in app/views/mycarts/show.html.erb</p>
+<div class="cart-show-container mt-1">
+    <%= render(
+            partial: 'cart_item',
+            locals: { cart: @cart }
+          ) %>
+</div>
+
