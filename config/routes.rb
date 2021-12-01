@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources 'orders', only: [:index, :show]
 
+  
   resources 'carts'
   resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]
 
