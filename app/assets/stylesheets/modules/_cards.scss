@@ -1,3 +1,4 @@
+// Cards in item#index
 .index-card {
   display: flex;
   align-items: center;
@@ -26,6 +27,7 @@
   }
 }
 
+// Cards in item#show
 .show-card {
   display: flex;
   justify-content: center;
@@ -48,6 +50,7 @@
   }
 }
 
+// Cards in cart#show
 .cart-item {
   display: flex;
   align-items: center;
@@ -87,5 +90,27 @@
     cursor: pointer;
     margin-left: 0.5em;
     color: $gni;
+  }
 }
+
+// Cards in order#show
+.order-card {
+  & a {
+    color: $gni;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  &__price {
+    text-align: center;
+    padding: 1em 0;
+    border-top: 1px solid $lightgrey;
+    font-size: 1.2em;
+    }
+}
+.order-card .show-card {
+  margin-bottom: 1em;
 }

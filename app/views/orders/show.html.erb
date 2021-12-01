@@ -1,6 +1,6 @@
-<h1>Commande n°<%=@order.id%></h1>
-<p>Détail de la commande :</p>
-<% @order.items.each do |item| %>
-  </p><%= link_to "#{item.title}", item_path(item) %> (<%=item.price%>€) x<%=item.join_table_item_orders.find_by(order_id: @order.id).quantity%></p>
-<% end %>
-<p>Prix total : <%=@order.total_price%>€</p>
+<div class="show-product show-order">
+  <%= render(
+          partial: 'order_show'
+        ) %>
+
+</div>
