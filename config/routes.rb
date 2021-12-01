@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources 'orders', only: [:index, :show]
 
-  resources 'carts'
+  get 'mon_chat_riot', to: 'carts#show', as: 'mon_chat_riot'
   resources 'join_table_item_carts', only: [:create, :edit, :update, :destroy]
 
   scope '/checkout' do
