@@ -4,6 +4,8 @@ class Admin::BoardController < ApplicationController
   before_action :is_admin?
 
   def index
+    @orders = Order.all
+    @sum = 0
   end
 
 end
