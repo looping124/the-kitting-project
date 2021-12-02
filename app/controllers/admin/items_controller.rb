@@ -30,6 +30,34 @@ class Admin::ItemsController < Admin::BoardController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+
+    if @item.update(item_params)
+      flash[:success] = "L'item a été modifié avec succès 👌"
+      redirect_to items_path
+    else
+      flash.now[:warning] = @item.errors.full_messages
+      render :edit
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:success] = "L'item a été supprimé avec succès 👌"
+    redirect_to items_path
+  end
+
+  def mask
+    Item.find(params[:item]).update(sellable: params[:unmask])
+    redirect_to items_path
+  end
+
   private
 
   def item_params
