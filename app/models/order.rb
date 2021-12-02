@@ -4,8 +4,8 @@ class Order < ApplicationRecord
   after_initialize :fill_order, if: :new_record?
   after_create :empty_cart
  
-  after_create :send_new_order_to_admin
-  after_create :send_order_validation_to_user
+  # after_create :send_new_order_to_admin
+  # after_create :send_order_validation_to_user
 
   #Associations
   belongs_to :user
