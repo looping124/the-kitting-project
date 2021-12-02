@@ -2,13 +2,25 @@ class JoinTableItemCartsController < ApplicationController
   def create
     JoinTableItemCart.create(cart: current_user.cart, item: Item.find(params[:id]))
     flash[:success] = "La photo est bien ajoutée à ton cha-riot ✨"
-    redirect_to root_path
+
+    @id = params[:id]
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { flash[:success] = "La photo est bien ajoutée à ton cha-riot ✨" }
+    end
   end
 
   def destroy
     @item = JoinTableItemCart.find_by(cart: current_user.cart, item: Item.find(params[:id]))
     @item.destroy
-    redirect_to cart_path(current_user.cart)
+
+    @id = params[:id]
+
+    respond_to do |format|
+      format.html { redirect_to cart_path(current_user.cart) }
+      format.js
+    end
   end
 
   def update

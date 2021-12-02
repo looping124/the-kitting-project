@@ -2,7 +2,7 @@
   <% if cart.items.length >0 %>
 
     <% cart.items.each do |item| %>
-      <div class="cart-item">
+      <div class="cart-item" data-id=<%= item.id %>>
         <div class="cart-item__picture">
           <img src=<%= item.image_url %> alt='image'>
         </div>
@@ -14,7 +14,7 @@
           <%# Fonction d'ajout ou retrait de quantité : Moins de 1 = Supprimer l'article %>
           <% if (JoinTableItemCart.find_by(item: item, cart: cart).quantity - 1 <= 0) %>
             <div class="cart-item__content--options">
-              <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn" %>
+              <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn", remote: true %>
               <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"change_quantity" %>
             </div>
           <% else %>

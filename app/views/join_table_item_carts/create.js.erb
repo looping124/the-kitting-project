@@ -1,0 +1,11 @@
+function markItemAsAddedToCart() {
+  const cartBtn = document
+    .querySelector("a[href='/join_table_item_carts?id=<%= @id %>']");
+
+  const itemInCart = document.createElement('p');
+  itemInCart.innerText = 'Ce produit est déjà dans votre panier.';
+
+  cartBtn.parentNode.replaceChild(itemInCart, cartBtn);
+}
+
+markItemAsAddedToCart();
