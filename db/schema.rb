@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_074439) do
+ActiveRecord::Schema.define(version: 2021_12_02_100110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -52,6 +58,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.integer "price"
     t.string "stripe_price_id"
     t.boolean "sellable", default: true
+  end
+
+  create_table "join_table_categories_items", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_join_table_categories_items_on_category_id"
+    t.index ["item_id"], name: "index_join_table_categories_items_on_item_id"
   end
 
   create_table "join_table_item_carts", force: :cascade do |t|
@@ -87,7 +102,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "is_admin", default: false
+    t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
