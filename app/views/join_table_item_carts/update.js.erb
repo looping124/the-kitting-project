@@ -26,7 +26,7 @@ function changeQuantity() {
         .parentNode
         .insertAdjacentHTML(
           'afterbegin',
-          "<%= j render(partial: 'carts/remove_btn', locals: { id: @id }) %>"
+          "<%= j render(partial: 'mycarts/remove_btn', locals: { id: @id }) %>"
         );
 
       minusBtn.remove();
@@ -44,7 +44,7 @@ function changeQuantity() {
           .parentNode
           .insertAdjacentHTML(
             'afterbegin',
-            "<%= j render(partial: 'carts/minus_btn', locals: { id: @id }) %>"
+            "<%= j render(partial: 'mycarts/minus_btn', locals: { id: @id }) %>"
           );
 
         delBtn.remove();
