@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_074439) do
+ActiveRecord::Schema.define(version: 2021_12_02_101034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -62,6 +68,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_join_table_item_carts_on_cart_id"
     t.index ["item_id"], name: "index_join_table_item_carts_on_item_id"
+  end
+
+  create_table "join_table_item_categories", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_join_table_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_join_table_item_categories_on_item_id"
   end
 
   create_table "join_table_item_orders", force: :cascade do |t|
@@ -87,7 +102,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_074439) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "is_admin", default: false
+    t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
