@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 
   #Callbacks
-  after_initialize :fill_order
+  after_create :fill_order
   after_create :empty_cart
  
   after_create :send_new_order_to_admin
