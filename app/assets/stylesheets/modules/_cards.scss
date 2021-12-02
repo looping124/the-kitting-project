@@ -240,3 +240,22 @@
     max-width: 300px;
   }
 }
+
+
+// Cards recommendations ( on item#show )
+.recommendations-title {
+  text-align: center;
+  margin: 3em 0 1em 0;
+}
+
+.recommendations-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-card.smaller {
+  width: 15em;
+  font-size: 0.8em;
+  text-align: center;
+}
