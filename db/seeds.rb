@@ -25,20 +25,20 @@ Faker::Config.locale = 'fr'
 
 # Création des users
 User.create(
-  email: "a@a.fr",
+  email: "potichadmin@yopmail.com",
   password: "adminpwd",
   is_admin: true,
   first_name: 'Admin',
   last_name: 'istrateur'
 )
 
+user = User.create(email: "poticha-user@yopmail.com", password: "userpwd")
+
 #Création de catégories
 Category.create(name:"Chat")
 Category.create(name:"Chien")
 Category.create(name:"Poils courts")
 Category.create(name:"Poils longs")
-
-user = User.create(email: "u@u.fr", password: "userpwd")
 
 picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbnail.png", 
                 "https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/5_thumbnail.png",
@@ -64,17 +64,17 @@ end
 # Création panier / join table
 userCart = Cart.create(user: user)
 
-4.times do |i|
+1.times do |i|
   JoinTableItemCart.create(cart: userCart, item: Item.all[i])
 end
 
 
 # Création orders / join table
-userOrder1, userOrder2 = Order.create(user: user)
+userOrder1 = Order.create(user: user)
 
-4.times do |i|
+1.times do |i|
   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i])
-  JoinTableItemOrder.create(order: userOrder2, item: Item.all[i+4])
+  JoinTableItemOrder.create(order: userOrder1, item: Item.all[i+4])
 end
 
 
