@@ -14,6 +14,10 @@
         <%= f.label "Prix (€)", class: "form-label" %>
         <%= f.number_field :price, class: "form-control", placeholder: "100", required: true %>
       </div>
+      <div class="form-group">
+        <%= f.label "Catégorie(s)" %> <br />
+        <%= f.collection_check_boxes :categories, Category.all,:id, :name , { checked: @item.categories.map(&:to_param) }%>
+      </div>
       <div class="form-group text-center my-3">
         <%= f.label "Ajouter la photo", class: "form-label" %>
         <%= f.file_field :item_picture, accept: 'image/png,image/gif,image/jpeg' %>

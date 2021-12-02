@@ -14,7 +14,7 @@ class Admin::ItemsController < Admin::BoardController
 
   def create
     @item = Item.new(item_params)
-    item_categories()
+    item_categories_creation()
     if @item.save
       flash[:success] = "L'item a été créé avec succès 😎"
       redirect_to(item_path(@item))
@@ -34,8 +34,10 @@ class Admin::ItemsController < Admin::BoardController
 
   def update
     @item = Item.find(params[:id])
-
+    
     if @item.update(item_params)
+      item_categories_destruction()
+      item_categories_creation()
       flash[:success] = "L'item a été modifié avec succès 👌"
       redirect_to items_path
     else
@@ -46,6 +48,7 @@ class Admin::ItemsController < Admin::BoardController
 
   def destroy
     @item = Item.find(params[:id])
+    item_categories_destruction()
     @item.destroy
     flash[:success] = "L'item a été supprimé avec succès 👌"
     redirect_to items_path
@@ -62,7 +65,8 @@ class Admin::ItemsController < Admin::BoardController
     puts 
     params.require(:item).permit(:title, :description, :price, :image_url, :item_picture)
   end
-  def item_categories 
+
+  def item_categories_creation 
     array_of_categories = params.require(:item).permit(categories:[])[:categories]
     unless array_of_categories.nil?
       array_of_categories.reject(&:empty?).each do |category_id|
@@ -72,5 +76,9 @@ class Admin::ItemsController < Admin::BoardController
         puts "-"*60
       end
     end
+  end
+
+  def item_categories_destruction
+    @item.categories.destroy_all
   end
 end
