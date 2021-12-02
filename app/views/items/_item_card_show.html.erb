@@ -12,7 +12,11 @@
   <div class="show-card__body">
     <h2><%= item.title %></h2>
     <p class="grey"><%= item.price %>€</p>
-    <p class=show-card__body--description><%= item.description %></p>
+    <% item.categories.each do |category| %>
+      <div class="btn info-btn tag-btn"><%= category.name %></div>
+    <% end %>
+    <p class="show-card__body--description"><%= item.description %></p>
+
     <div class="mt-1">
       <%= render(
             partial: "carts/add_to_cart_btn",
