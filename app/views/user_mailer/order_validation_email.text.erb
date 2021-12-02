@@ -8,11 +8,14 @@ Nous avons le plaisir de confirmer votre commande d'un montant total de : <%= @o
 Voici le détail de votre commande :
 
 <% @order.items.each do |item| %>
-  <%= link_to "#{item.title}", url: item.image_url %> (<%=item.price%> €) x<%=item.join_table_item_orders.find_by(order_id: @order.id).quantity%>
+  <%= link_to "#{item.title}", item.image_url %> (<%=item.price%> €) x<%=item.join_table_item_orders.find_by(order_id: @order.id).quantity%>
   <% if item.item_picture.attached? %>
-      <%= image_tag item.item_picture, alt: 'image' %>
+    <div class="cart-item">
+      <div class="cart-item__picture">
+        <%= image_tag item.item_picture, alt: 'image' %>
+      </div>
+    </div>
   <% end %>
-  
 <% end %>
 
 A bientôt sur Poticha.
