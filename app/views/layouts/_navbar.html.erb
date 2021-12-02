@@ -17,7 +17,7 @@
           </span>
         <% end %>
       <% else %>
-        <%= link_to cart_path(current_user.cart), class: 'item' do %>
+        <%= link_to mycart_path, class: 'item' do %>
           Mon Panier
           <span class="cart-items-count"></span>
         <% end %>

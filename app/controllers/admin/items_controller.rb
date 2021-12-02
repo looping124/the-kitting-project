@@ -55,7 +55,12 @@ class Admin::ItemsController < Admin::BoardController
   end
 
   def mask
-    Item.find(params[:item]).update(sellable: params[:unmask])
+    @item = Item.find(params[:item]).update(sellable: params[:unmask])
+    if params[:unmask] == "true"
+      flash[:success] = "L'item a été affiché avec succès. Il est de nouveaux accessible à la vente. 🤑"
+    else
+      flash[:success] = "L'item a été masqué avec succès. Il n'est plus accessible à l'achat. 👻"
+    end
     redirect_to items_path
   end
 

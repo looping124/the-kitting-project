@@ -22,7 +22,7 @@ class JoinTableItemCartsController < ApplicationController
     @empty_cart = current_user.cart.items.length
 
     respond_to do |format|
-      format.html { redirect_to cart_path(current_user.cart) }
+      format.html { redirect_to mycart_path }
       format.js
     end
   end
@@ -37,7 +37,7 @@ class JoinTableItemCartsController < ApplicationController
     @total_amount = current_user.cart.total_price
 
     respond_to do |format|
-      format.html { redirect_to cart_path(current_user.cart) }
+      format.html { redirect_to mycart_path }
       format.js
     end
   end
