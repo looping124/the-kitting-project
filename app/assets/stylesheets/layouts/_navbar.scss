@@ -21,6 +21,21 @@ body {
       height: 3rem;
       width: 3rem;
       margin-right: 1rem;
+      transform: rotate(0);
+
+      &:hover {
+        animation: flip 1s ease;
+      }
+    }
+
+    @keyframes flip {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .title {
