@@ -9,18 +9,16 @@ class Admin::ItemsController < Admin::BoardController
 
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   def create
     @item = Item.new(item_params)
-    puts @item.errors.inspect
-    puts @item.valid?   
+    item_categories()
     if @item.save
-      puts "#" * 60
       flash[:success] = "L'item a été créé avec succès 😎"
-      redirect_to(admin_item_path(@item))
+      redirect_to(item_path(@item))
     else
-      puts "$" * 60
       flash.now[:warning] = @item.errors.full_messages
       render :new
     end
@@ -61,7 +59,18 @@ class Admin::ItemsController < Admin::BoardController
   private
 
   def item_params
+    puts 
     params.require(:item).permit(:title, :description, :price, :image_url, :item_picture)
   end
-
+  def item_categories 
+    array_of_categories = params.require(:item).permit(categories:[])[:categories]
+    unless array_of_categories.nil?
+      array_of_categories.reject(&:empty?).each do |category_id|
+        test = JoinTableItemCategory.create(item: @item,category: Category.find(category_id))
+        puts "-"*60
+        puts test
+        puts "-"*60
+      end
+    end
+  end
 end
