@@ -16,8 +16,9 @@
       </div>
       <div class="form-group text-center my-3">
         <%= f.label "Ajouter la photo", class: "form-label" %>
-        <%= f.file_field :item_picture, accept: 'image/png,image/gif,image/jpeg' %>
+        <%= f.file_field :item_picture, is: "drop-files", label: "Déposer un fichier", help: "Drag & drop la photo ici", accept: 'image/png,image/gif,image/jpeg' %>
       </div>
+      <br/>
       <div class="form-group">
         <%= f.label "URL de la photo", class: "form-label" %>
         <%= f.text_field :image_url, class: "form-control", placeholder: "https://..." %>
