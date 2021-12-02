@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   resources 'orders', only: [:index, :show]
 
+
   # Custum routes :
-  resource 'myprofile', only: [:show], :path => "mon-compte"
+  resource 'myprofile', only: [:show, :edit, :update, :destroy], :path => "mon-compte"
   resource 'mycart', only: [:show], :path => "mon-chat-riot"
   
   resources 'carts'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     root 'board#index'
     resources :items do 
       resources :item_pictures, only: [:create]
+      get 'mask', on: :collection
     end
   end
 
