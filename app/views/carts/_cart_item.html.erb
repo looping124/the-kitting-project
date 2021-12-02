@@ -4,8 +4,13 @@
     <% cart.items.each do |item| %>
       <div class="cart-item" data-id=<%= item.id %>>
         <div class="cart-item__picture">
-          <img src=<%= item.image_url %> alt='image'>
+          <% if item.item_picture.attached? %>
+            <%= image_tag item.item_picture, alt: 'image' %>
+          <% else %>
+            <img src=<%= item.image_url %> alt='image'>
+          <% end %>
         </div>
+        
         <div class="cart-item__content">
           <p class="cart-item__content--title"><%= item.title %></p>
           <p><%= item.price %>€</p>
