@@ -61,3 +61,12 @@ fr:
       not_saved:
         one: "1 erreur détectée :"
         other: "%{count} erreurs détectées :"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Bah alors mon petit chat, on mets pas d'email ?"
+            password:
+              blank: "Faut mettre un mot de passe frère"
