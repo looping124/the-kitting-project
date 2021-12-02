@@ -37,7 +37,8 @@ class Item < ApplicationRecord
   end
 
   def create_stripe_product
-    unless self.stripe_price_id
+    if self.image_url !=""
+          unless self.stripe_price_id
       stripe_product = Stripe::Product.create({
         name: title,
         description: description,
@@ -55,5 +56,7 @@ class Item < ApplicationRecord
 
       self.save
     end
+    end
+
   end
 end
