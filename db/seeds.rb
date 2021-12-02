@@ -14,6 +14,8 @@ Cart.destroy_all
 Order.destroy_all
 JoinTableItemOrder.destroy_all
 JoinTableItemCart.destroy_all
+Category.destroy_all
+JoinTableItemCategory.destroy_all
 
 ### Remplissage de la BDD
 
@@ -31,6 +33,12 @@ User.create(
 )
 
 user = User.create(email: "poticha-user@yopmail.com", password: "userpwd")
+
+#Création de catégories
+Category.create(name:"Chat")
+Category.create(name:"Chien")
+Category.create(name:"Poils courts")
+Category.create(name:"Poils longs")
 
 picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbnail.png", 
                 "https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/5_thumbnail.png",
@@ -69,3 +77,8 @@ userOrder1 = Order.create(user: user)
   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i+4])
 end
 
+
+# Création categories / join table
+20.times do |i|
+  JoinTableItemCategory.create(item:Item.all.sample, category:Category.all.sample)
+end
