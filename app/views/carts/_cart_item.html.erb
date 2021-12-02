@@ -41,8 +41,7 @@
     <% end %>
 
   <% else %>
-    <p> Le panier est vide. 😿 </p>
-    <%= link_to "Retour à l'accueil", root_path, class:"btn" %>
+    <%= render partial: 'empty_cart' %>
   <% end %>
 </div>
 
