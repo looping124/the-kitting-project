@@ -14,6 +14,8 @@ Cart.destroy_all
 Order.destroy_all
 JoinTableItemOrder.destroy_all
 JoinTableItemCart.destroy_all
+Category.destroy_all
+JoinTableItemCategory.destroy_all
 
 ### Remplissage de la BDD
 
@@ -29,6 +31,12 @@ User.create(
   first_name: 'Admin',
   last_name: 'istrateur'
 )
+
+#Création de catégories
+Category.create(name:"Chat")
+Category.create(name:"Chien")
+Category.create(name:"Poils courts")
+Category.create(name:"Poils longs")
 
 user = User.create(email: "u@u.fr", password: "userpwd")
 
@@ -69,3 +77,8 @@ userOrder1, userOrder2 = Order.create(user: user)
   JoinTableItemOrder.create(order: userOrder2, item: Item.all[i+4])
 end
 
+
+# Création categories / join table
+20.times do |i|
+  JoinTableItemCategory.create(item:Item.all.sample, category:Category.all.sample)
+end

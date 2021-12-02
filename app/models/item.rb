@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   has_many :join_table_item_orders
   has_many :orders, through: :join_table_item_orders
 
+  has_many :join_table_item_categories
+  has_many :categories, through: :join_table_item_categories
+
   has_one_attached :item_picture
 
   #Validations
