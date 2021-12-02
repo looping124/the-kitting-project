@@ -14,12 +14,31 @@ Cart.destroy_all
 Order.destroy_all
 JoinTableItemOrder.destroy_all
 JoinTableItemCart.destroy_all
+Category.destroy_all
+JoinTableItemCategory.destroy_all
 
 ### Remplissage de la BDD
 
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
 # Création des users
-User.create(email: "a@a.fr", password: "adminpwd", is_admin: true)
-user = User.create(email: "u@u.fr", password: "userpwd")
+User.create(
+  email: "potichadmin@yopmail.com",
+  password: "adminpwd",
+  is_admin: true,
+  first_name: 'Admin',
+  last_name: 'istrateur'
+)
+
+user = User.create(email: "poticha-user@yopmail.com", password: "userpwd")
+
+#Création de catégories
+Category.create(name:"Chat")
+Category.create(name:"Chien")
+Category.create(name:"Poils courts")
+Category.create(name:"Poils longs")
 
 picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbnail.png", 
                 "https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/5_thumbnail.png",
@@ -34,26 +53,32 @@ picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbn
 
 # Création des items
 9.times do |i|
-  Item.create(title: "Photo n°#{i}", 
-    description: "Description n°#{i} : #{Faker::Lorem.words(number: 5)}", 
-    price: Faker::Number.between(from: 10.0, to: 150.0).round(2), 
+  Item.create(
+    title: "Photo n°#{i}", 
+    description: "Description n°#{i} : #{Faker::Lorem.words(number: 5).join(" ")}", 
+    price: rand(10..500), 
     image_url: picturesArr[i]
   )
 end
 
 # Création panier / join table
-userCart = Cart.create(user: user)
+# userCart = Cart.create(user: user)
 
-4.times do |i|
-  JoinTableItemCart.create(cart: userCart, item: Item.all[i])
-end
+# 1.times do |i|
+#   JoinTableItemCart.create(cart: userCart, item: Item.all[i])
+# end
 
 
 # Création orders / join table
-userOrder1, userOrder2 = Order.create(user: user)
+# userOrder1 = Order.create(user: user)
 
-4.times do |i|
-  JoinTableItemOrder.create(order: userOrder1, item: Item.all[i])
-  JoinTableItemOrder.create(order: userOrder2, item: Item.all[i+4])
-end
+# 1.times do |i|
+#   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i])
+#   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i+4])
+# end
 
+
+# Création categories / join table
+# 20.times do |i|
+#   JoinTableItemCategory.create(item:Item.all.sample, category:Category.all.sample)
+# end
