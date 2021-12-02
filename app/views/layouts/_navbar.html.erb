@@ -17,7 +17,10 @@
           </span>
         <% end %>
       <% else %>
-        <%= link_to 'Mon Panier', cart_path(current_user.cart), class: 'item' %>
+        <%= link_to cart_path(current_user.cart), class: 'item' do %>
+          Mon Panier
+          <span class="cart-items-count"></span>
+        <% end %>
       <% end %>
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>
