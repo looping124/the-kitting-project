@@ -1,7 +1,7 @@
-<div>
+<div class="admin-board-container">
   <h1>Bienvenue dans l'espace admin</h1>
   <ul>
-    <li><%= link_to  "Créer un nouvel item", new_admin_item_path %></li>
+    <li><%= link_to  "Créer un nouvel item", new_admin_item_path, class:"btn" %></li>
     <li>Pour modifier un item : cliquez sur l'icone "modifier" située directement sur la <%= link_to 'liste des items', items_path %></li>
     <li>Pour supprimer un item : cliquez sur l'icone "supprimer" située directement sur la <%= link_to 'liste des items', items_path %></li>
   </ul>
