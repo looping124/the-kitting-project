@@ -53,6 +53,13 @@ class Admin::ItemsController < Admin::BoardController
     redirect_to items_path
   end
 
+  def mask
+    puts "Vendable ? => #{Item.find(params[:item]).sellable}"
+    puts params
+    Item.find(params[:item]).update(sellable: params[:unmask])
+    redirect_to items_path
+  end
+
   private
 
   def item_params

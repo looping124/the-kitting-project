@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     root 'board#index'
     resources :items do 
       resources :item_pictures, only: [:create]
+      get 'mask', on: :collection
     end
   end
 
