@@ -59,7 +59,7 @@
       <% if current_user.is_admin %>
         <%= link_to "Administration", admin_root_path, class: 'item' %>
       <% end %>
-      <%= link_to 'Mon Compte', user_path(current_user), class: 'item' %>
+      <%= link_to 'Mon Compte', myprofile_path, class: 'item' %>
       <%= link_to 'Mon Panier', cart_path(current_user.cart), class: 'item' %>
       <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: 'item' %>
     <% else %>

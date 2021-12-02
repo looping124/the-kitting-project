@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   # Custum routes :
-  resource 'myprofile', only: [:show], :path => "mon-compte"
+  resource 'myprofile', only: [:show, :edit, :update, :destroy], :path => "mon-compte"
   resource 'mycart', only: [:show], :path => "mon-chat-riot"
   
   resources 'carts'
