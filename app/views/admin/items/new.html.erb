@@ -16,7 +16,9 @@
       </div>
       <div class="form-group">
         <%= f.label "Catégorie(s)" %> <br />
-        <%= f.collection_check_boxes :categories, Category.all,:id, :name , include_hidden: false%>
+        <div class="form-group__checkboxes">
+          <%= f.collection_check_boxes :categories, Category.all,:id, :name , include_hidden: false%>
+        </div>
       </div>
       <div class="form-group text-center my-3">
         <%= f.label "Ajouter la photo", class: "form-label" %>
