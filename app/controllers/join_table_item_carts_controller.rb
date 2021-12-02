@@ -4,6 +4,7 @@ class JoinTableItemCartsController < ApplicationController
     flash[:success] = "La photo est bien ajoutée à ton cha-riot ✨"
 
     @id = params[:id]
+    @cart_items_count = current_user.cart.items.count
     
     respond_to do |format|
       format.html { redirect_to root_path }
@@ -16,6 +17,7 @@ class JoinTableItemCartsController < ApplicationController
     @item.destroy
 
     @id = params[:id]
+    @cart_items_count = current_user.cart.items.count
 
     respond_to do |format|
       format.html { redirect_to cart_path(current_user.cart) }
@@ -27,6 +29,13 @@ class JoinTableItemCartsController < ApplicationController
     @item = JoinTableItemCart.find_by(cart: current_user.cart, item: Item.find(params[:id]))
     increment = params[:increment].to_i
     @item.update(quantity: @item.quantity + increment)
-    redirect_to cart_path(current_user.cart)
+
+    @id = params[:id]
+    @quantity = @item.quantity
+
+    respond_to do |format|
+      format.html { redirect_to cart_path(current_user.cart) }
+      format.js
+    end
   end
 end

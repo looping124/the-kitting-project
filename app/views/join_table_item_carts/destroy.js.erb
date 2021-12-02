@@ -1,3 +1,6 @@
 document
   .querySelector('div[data-id="<%= @id %>"]')
   .remove()
+document
+  .querySelector('.cart-items-count')
+  .innerText = "(<%= @cart_items_count %>)"

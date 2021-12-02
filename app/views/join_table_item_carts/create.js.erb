@@ -6,6 +6,11 @@ function markItemAsAddedToCart() {
   itemInCart.innerText = 'Ce produit est déjà dans votre panier.';
 
   cartBtn.parentNode.replaceChild(itemInCart, cartBtn);
+
+  const myCart = document
+    .querySelector('.cart-items-count')
+
+  myCart.innerText = "(<%= @cart_items_count %>)"
 }
 
 markItemAsAddedToCart();

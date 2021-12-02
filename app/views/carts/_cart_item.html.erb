@@ -9,19 +9,30 @@
         <div class="cart-item__content">
           <p class="cart-item__content--title"><%= item.title %></p>
           <p><%= item.price %>€</p>
-          <p><span class="cart-item__content--quantity">Quantité :</span> <%= JoinTableItemCart.find_by(item: item, cart: cart).quantity %></p>
+          <p>
+            <span class="cart-item__content--quantity">Quantité :</span>
+            <span class='cart-item__content--quantity-num'>
+              <%= JoinTableItemCart.find_by(item: item, cart: cart).quantity %>
+            </span>
+          </p>
 
           <%# Fonction d'ajout ou retrait de quantité : Moins de 1 = Supprimer l'article %>
           <% if (JoinTableItemCart.find_by(item: item, cart: cart).quantity - 1 <= 0) %>
             <div class="cart-item__content--options">
-              <%= link_to "Supprimer", join_table_item_cart_path(item.id), method: "delete", class:"btn danger-btn", remote: true %>
-              <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"change_quantity" %>
+              <%= render(
+                partial: 'remove_btn',
+                locals: { id: item.id }
+              ) %>
+              <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"change_quantity", remote: true %>
             </div>
           <% else %>
             <%# Insérer ici fonction d'incrément de quantité %>
             <div class="cart-item__content--options">
-              <%= link_to "-", join_table_item_cart_path(id: item.id, increment: -1), method: "patch",class:"change_quantity" %>
-              <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"change_quantity" %>
+              <%= render(
+                partial: 'minus_btn',
+                locals: { id: item.id }
+              ) %>
+              <%= link_to "+", join_table_item_cart_path(id: item.id, increment: 1), method: "patch",class:"change_quantity", remote: true %>
             </div>
           <% end %>
 
