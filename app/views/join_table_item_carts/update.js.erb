@@ -1,7 +1,11 @@
 function quantityUpdate(itemCard) {
+  const totalAmount = document.querySelector('.cart-total-wrapper__amount')
+
   itemCard
     .querySelector('.cart-item__content--quantity-num')
     .innerText = "<%= @quantity %>";
+
+  totalAmount.innerText = 'Total : <%= @total_amount %>€'
 }
 
 function changeQuantity() {

@@ -18,6 +18,7 @@ class JoinTableItemCartsController < ApplicationController
 
     @id = params[:id]
     @cart_items_count = current_user.cart.items.count
+    @total_amount = current_user.cart.total_price
 
     respond_to do |format|
       format.html { redirect_to cart_path(current_user.cart) }
@@ -32,6 +33,7 @@ class JoinTableItemCartsController < ApplicationController
 
     @id = params[:id]
     @quantity = @item.quantity
+    @total_amount = current_user.cart.total_price
 
     respond_to do |format|
       format.html { redirect_to cart_path(current_user.cart) }
