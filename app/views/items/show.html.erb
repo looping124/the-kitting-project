@@ -1,5 +1,9 @@
 <div class="show-product">
 
+  <div class="show-card__menu">
+    <%= link_to "Retour", items_path %>
+  </div>
+
   <%= render(
           partial: 'item_card_show',
           locals: { item: @item }

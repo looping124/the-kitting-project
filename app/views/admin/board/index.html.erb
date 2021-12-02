@@ -1,4 +1,9 @@
-<div class="admin-board-container">
+  <div class="show-card__menu">
+    <%= link_to "Retour", items_path %>
+    <br/><br/>
+  </div>
+  
+  <div class="admin-board-container">
   <h1>Bienvenue dans l'espace admin</h1>
   <ul>
     <li><%= link_to  "Créer un nouvel item", new_admin_item_path, class:"btn" %></li>

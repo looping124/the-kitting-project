@@ -1,4 +1,8 @@
-<div class="form-page">
+  <div class="show-card__menu">
+    <%= link_to "Retour", admin_root_path %>
+    <br/><br/>
+  </div>
+  <div class="form-page">
   <div class="form-page__form">
     <h1>Création d'un nouvel item</h1>
     <%= form_with model: @item, url: admin_items_path, local: true, class: "form", id: "item-form", multipart: true do |f| %>
@@ -20,6 +24,7 @@
           <%= f.collection_check_boxes :categories, Category.all,:id, :name , include_hidden: false%>
         </div>
       </div>
+      <br/>
       <div class="form-group text-center my-3">
         <%= f.label "Ajouter la photo", class: "form-label" %>
         <%= f.file_field :item_picture, is: "drop-files", label: "Déposer un fichier", help: "Drag & drop la photo ici", accept: 'image/png,image/gif,image/jpeg' %>

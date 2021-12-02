@@ -4,5 +4,6 @@ class MycartsController < ApplicationController
     @user = current_user
     @cart = @user.cart
     @total_amount = @cart.total_price()
+    @items = @cart.items
   end
 end

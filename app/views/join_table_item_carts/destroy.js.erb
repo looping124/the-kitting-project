@@ -14,7 +14,7 @@ console.log(<%= @empty_cart %>)
 if (<%= @empty_cart %> === 0) {
   document
     .querySelector('.cart-items-wrapper')
-    .innerHTML = "<%= j render partial: 'carts/empty_cart' %>";
+    .innerHTML = "<%= j render partial: 'mycarts/empty_cart' %>";
 
   document
     .querySelector('.cart-total-wrapper')

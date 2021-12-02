@@ -1,5 +1,5 @@
 <div class="order-card">
-  <%= link_to "Retour", user_path(current_user) %>
+  <%= link_to "Retour", myprofile_path(@user) %>
   <div class="order-card__title">
     <h1>Commande n°<%=@order.id%></h1>
     <p>Détail de la commande :</p>
