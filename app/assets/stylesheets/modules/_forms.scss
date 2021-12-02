@@ -50,3 +50,24 @@
 form {
   width: 100%;
 }
+
+.form-group__checkboxes {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+
+  & input[type="checkbox"] {
+    display: block;
+    margin-right: 4px;
+    position: relative;
+
+    &:checked {
+      filter: brightness(0) saturate(100%) invert(91%) sepia(15%) saturate(763%) hue-rotate(328deg) brightness(92%) contrast(86%);
+      -webkit-filter: brightness(0) saturate(100%) invert(91%) sepia(15%) saturate(763%) hue-rotate(328deg) brightness(92%) contrast(86%);
+    }
+  }
+
+  & label {
+    padding-right: 24px;
+  }
+}

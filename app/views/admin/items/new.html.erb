@@ -19,8 +19,10 @@
         <%= f.number_field :price, class: "form-control", placeholder: "100", required: true %>
       </div>
       <div class="form-group">
-        <%= f.label "Catégorie(s)", class: "form-label" %> <br />
-        <%= f.collection_check_boxes :categories, Category.all,:id, :name , include_hidden: false%>
+        <%= f.label "Catégorie(s)" %> <br />
+        <div class="form-group__checkboxes">
+          <%= f.collection_check_boxes :categories, Category.all,:id, :name , include_hidden: false%>
+        </div>
       </div>
       <br/>
       <div class="form-group text-center my-3">

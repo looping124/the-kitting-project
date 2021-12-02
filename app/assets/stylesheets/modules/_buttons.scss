@@ -32,4 +32,12 @@
   text-align: center;
   background-color: $gni;
   display: inline;
+
+  &.tag-btn {
+    cursor: default;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

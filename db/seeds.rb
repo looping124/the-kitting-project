@@ -62,23 +62,23 @@ picturesArr = ["https://s3.amazonaws.com/api.coolcatsnft.com/thumbnails/0_thumbn
 end
 
 # Création panier / join table
-userCart = Cart.create(user: user)
+# userCart = Cart.create(user: user)
 
-1.times do |i|
-  JoinTableItemCart.create(cart: userCart, item: Item.all[i])
-end
+# 1.times do |i|
+#   JoinTableItemCart.create(cart: userCart, item: Item.all[i])
+# end
 
 
 # Création orders / join table
-userOrder1 = Order.create(user: user)
+# userOrder1 = Order.create(user: user)
 
-1.times do |i|
-  JoinTableItemOrder.create(order: userOrder1, item: Item.all[i])
-  JoinTableItemOrder.create(order: userOrder1, item: Item.all[i+4])
-end
+# 1.times do |i|
+#   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i])
+#   JoinTableItemOrder.create(order: userOrder1, item: Item.all[i+4])
+# end
 
 
 # Création categories / join table
-20.times do |i|
-  JoinTableItemCategory.create(item:Item.all.sample, category:Category.all.sample)
-end
+# 20.times do |i|
+#   JoinTableItemCategory.create(item:Item.all.sample, category:Category.all.sample)
+# end
