@@ -5,4 +5,11 @@
           locals: { item: @item }
         ) %>
 
+  <% if Item.all.count > 3 %>
+    <%= render(
+            partial: 'item_card_recommendations',
+            locals: { item: @item }
+          ) %>
+  <% end %>
+
 </div>
