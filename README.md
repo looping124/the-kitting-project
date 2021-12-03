@@ -71,10 +71,10 @@ Our little team is composed of
 
 | Name | GitHub |
 | ---- | ------ |
-| Kévin LEMAN | @keeev90 |
-| Pierre PELLEGRINO | @pierre-pellegrino |
-| Cédric LE NET | @looping124
-| Boris GILLES | @Beygs |
+| Kévin LEMAN | [@keeev90](@keeev90) |
+| Pierre PELLEGRINO | [@pierre-pellegrino](@pierre-pellegrino) |
+| Cédric LE NET | [@looping124](@looping124) |
+| Boris GILLES | [@Beygs](@Beygs) |
 
 ## Acknowledgements
 
